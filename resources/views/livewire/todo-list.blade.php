@@ -2,7 +2,7 @@
     <div>
         <div class="todo">
             <header clas="todo-header">
-                <h2 class="text-2xl text-center ml-2">To Do List </h2>
+                <h2 class="text-2xl text-center ml-2">{{ Str::ucfirst(Auth::user()->name) }}'s To Do List </h2>
             </header>
             <x-validation-errors class="mb-4" />
             <div class="todo-form mb-4">
