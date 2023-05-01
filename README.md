@@ -1,7 +1,7 @@
 ## Todo Widget
 - This is a simple todo list component made with Laravel 10, Livewire, and Tailwindcss. This is intended to be a widget on a larger  project managment dashboard. 
 ![todo-list](https://user-images.githubusercontent.com/10621935/235467235-fe986e6c-1098-434a-8fac-b9c10231fa93.png)
-### It features inline editing of tasks.
+### It features inline editing of tasks and each task is saved under the logged in user. 
 ![inline-edit](https://user-images.githubusercontent.com/10621935/235467412-4682f621-ff12-40ce-b8b0-795ecae749a3.png)
 
 ## To run
@@ -18,6 +18,7 @@
  
  ## Still want to...
  - have totals update without page refresh
+ - secure all views
  
 
 ## This was built using these awesome products:
