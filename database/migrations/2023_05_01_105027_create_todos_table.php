@@ -14,9 +14,10 @@ return new class extends Migration
         Schema::create('todos', function (Blueprint $table) {
             $table->id();
             $table->text('task');
-            $table->float('hours', 2, 2, true);
+            $table->string('hours');
             $table->timestamp('completed_at')->nullable();
             $table->foreignId('user_id')->constrained();
+            $table->softDeletes('deleted_at');
             $table->timestamps();
         });
     }
