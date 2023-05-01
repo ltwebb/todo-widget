@@ -8,8 +8,12 @@ use Livewire\Component;
 
 class TodoList extends Component
 {
+
     public string $task = '';
     public string $hours = '';
+    public $tasksTotal;
+    public $hoursTotal;
+
     public $editing;
 
     protected $rules = [
@@ -19,9 +23,23 @@ class TodoList extends Component
         'editing.hours' => 'required' | 'numeric',
     ];
 
+    public function mount(Todo $todo)
+    {
+        $this->tasksTotal = Todo::where('completed_at', '=', null)
+            ->count('task');
+
+        $this->hoursTotal = Todo::where('completed_at', '=', null)
+            ->sum('hours');
+    }
+
     public function render()
     {
-        return view('livewire.todo-list', ['tasks' => Todo::orderBy('completed_at', 'asc')->orderBy('created_at', 'desc')->get()]);
+        return view(
+            'livewire.todo-list',
+            ['tasks' => Todo::orderBy('completed_at', 'asc')
+                ->orderBy('created_at', 'desc')
+                ->get()]
+        );
     }
 
     public function addTask()

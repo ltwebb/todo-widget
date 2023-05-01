@@ -13,9 +13,16 @@ class TodoController extends Controller
      */
     public function index()
     {
-        //change to limit query before production
+
         $todos = Todo::all();
-        return view('app.todos.index', compact('todos'));
+
+        $tasksTotal = Todo::where('completed_at', '!=', null)
+            ->count('task');
+
+        $hoursTotal = Todo::where('completed_at', '!=', null)
+            ->sum('hours');
+        // dd($hoursTotal);
+        return view('app.todos.index', compact('todos', 'hoursTotal', 'tasksTotal'));
     }
 
     /**

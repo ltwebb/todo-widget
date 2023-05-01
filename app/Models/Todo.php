@@ -30,6 +30,9 @@ class Todo extends Model
         });
     }
 
+    protected $casts = [
+        'hours' => 'decimal:2'
+    ];
 
     public function user()
     {
