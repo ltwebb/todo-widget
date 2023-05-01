@@ -6,17 +6,17 @@
             </header>
             <x-validation-errors class="mb-4" />
             <div class="todo-form mb-4">
-                <div class="grid grid-cols-6 gap-2 p-6">
-                    <div class="col-span-3">
+                <div class="grid grid-cols-1 lg:grid-cols-6 gap-2 p-6">
+                    <div class="lg:col-span-3">
                         <x-label for="task" value="{{ __('I need to...') }}" />
                         <x-input wire:model="task" wire:keydown.enter="addTask" type="text" class="w-full" />
                     </div>
-                    <div class="col-span-2">
+                    <div class="lg:col-span-2">
                         <x-label for="task" value="{{ __('Hours to complete') }}" />
                         <x-input wire:model="hours" type="text" wire:keydown.enter="addTask" class="w-full" />
 
                     </div>
-                    <div class="col-span-1">
+                    <div class="lg:col-span-1">
                         <x-button class="btn bg-indigo-500 mt-6 text-white" wire:click="addTask">Add</x-button>
                     </div>
                 </div>
@@ -30,18 +30,18 @@
 
                         <div class="d-flex justify-content-between align-items-end">
                             @if (isset($editing) && $editing->id == $task->id)
-                                <div class="flex justify-around border-b py-4">
+                                <div class="flex flex-wrap justify-around border-b py-4">
                                     <div class="">
-                                        <x-input class="w-80" wire:key="editField{{ $task }}" type="text"
+                                        <x-input class="lg:w-80" wire:key="editField{{ $task }}" type="text"
                                             wire:keydown.enter="updateTask" wire:model="editing.task" />
                                     </div>
                                     <div class="">
-                                        <x-input class="w-24" wire:key="editField{{ $hours }}" type="text"
+                                        <x-input class="lg:w-24" wire:key="editField{{ $hours }}" type="text"
                                             wire:keydown.enter="updateTask" wire:model="editing.hours" />
                                     </div>
 
-                                    <div class="flex justify-between">
-                                        <button class="text-green-600 mr-8" wire:click="updateTask()"><svg
+                                    <div class="flex mt-4 lg:mt-0 flex-wrap justify-between">
+                                        <button class="text-green-600  mr-8" wire:click="updateTask()"><svg
                                                 xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                                 stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                                 <path stroke-linecap="round" stroke-linejoin="round"
